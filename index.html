@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkatarao Gurram - Cloud Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --text-light: #666666;
+            --accent: #3b82f6;
+            --border: #e5e5e5;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #fafafa;
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        #certifications .container {
+            max-width: 1100px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .hero {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            width: 100%;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            flex-shrink: 0;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            margin-right: 12px;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: #f5f5f5;
+            border-color: var(--text);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+            margin-bottom: 48px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            background: #ffffff;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .timeline-container {
+            position: relative;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 24px;
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-left: 4px solid var(--accent);
+        }
+
+        .experience-item:hover, .education-item:hover {
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .experience-item:last-child, .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .date {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            padding: 4px 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: var(--accent);
+            margin-bottom: 6px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+
+
+        .experience-item p:first-of-type, .education-item p:first-of-type {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .experience-item p, .education-item p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 900px) {
+            .cert-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .experience-item, .education-item {
+                padding: 20px;
+            }
+
+            .experience-item h3, .education-item h3 {
+                font-size: 17px;
+            }
+
+            .experience-item p, .education-item p {
+                font-size: 14px;
+            }
+        }
+
+        .cert-card {
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 24px;
+            background: #ffffff;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cert-card:hover::before {
+            opacity: 1;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+        }
+
+        .cert-badge {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover .cert-badge {
+            transform: scale(1.05);
+        }
+
+        .cert-badge::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cert-card:hover .cert-badge::after {
+            opacity: 0.2;
+        }
+
+        .cert-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .cert-card h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: var(--text);
+            font-weight: 600;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .cert-card p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: auto;
+            transition: gap 0.2s;
+        }
+
+        .cert-card:hover .cert-link {
+            gap: 10px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .project-card-content {
+            padding: 24px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-layout {
+                flex-direction: column-reverse;
+                gap: 32px;
+            }
+
+            .hero-photo {
+                width: 200px;
+                height: 200px;
+            }
+
+            .cert-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .nav-links {
+                gap: 16px;
+                font-size: 13px;
+            }
+
+            nav .container {
+                padding: 16px 24px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-photo {
+                width: 180px;
+                height: 180px;
+            }
+
+            .cert-grid {
+                gap: 16px;
+            }
+
+            .cert-card {
+                padding: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#home">Venkatarao Gurram</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <h1>Venkatarao Gurram</h1>
+                    <p class="subtitle">Cloud Support Associate @ AWS · 3x AWS Certified · 3.5 Years Experience</p>
+                    <p>Empowering enterprises to deploy, scale, and optimize cloud infrastructure on AWS. Specialized in deployment automation, troubleshooting, and delivering technical excellence.</p>
+                    <div style="margin-top: 32px;">
+                        <a href="https://www.linkedin.com/in/venkataraogurram/" class="btn" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/venkataraogurram" class="btn btn-outline" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <img src="images/about-me.jpg" alt="Venkatarao Gurram" class="hero-photo">
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Cloud Support Associate at AWS with 3.5 years of experience in cloud infrastructure, deployment automation, and DevOps practices. Currently working in the Deployment team, I help enterprise customers architect, deploy, and optimize scalable cloud solutions while ensuring operational excellence across AWS services.</p>
+            <p>My journey includes 2+ years at Infosys as a Systems Engineer managing enterprise infrastructure on the CISCO Call Manager project, and comprehensive training in modern DevOps tools. I hold a B.Tech in Electronics and Communication Engineering from RGUKT, combining strong technical fundamentals with hands-on cloud expertise.</p>
+            <p style="color: var(--text);">🏆 Pratibha Awardee from Government of Andhra Pradesh (2016)</p>
+            
+            <div class="skill-list">
+                <span class="skill-tag">AWS Cloud</span>
+                <span class="skill-tag">Linux Administration</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">Ansible</span>
+                <span class="skill-tag">Jenkins CI/CD</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">JIRA</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            
+            <div class="timeline-container">
+                <div class="experience-item">
+                    <span class="date">Nov 25, 2024 - Present · 1 year 1 month</span>
+                    <h3>Cloud Support Associate</h3>
+                    <p>Amazon Web Services (AWS) · Deployment Team</p>
+                    <p>• Support enterprise customers with AWS deployment services including EC2, Lambda, ECS, and CloudFormation</p>
+                    <p>• Troubleshoot complex deployment issues and optimize cloud infrastructure for performance and cost</p>
+                    <p>• Create technical documentation and knowledge base articles for deployment best practices</p>
+                </div>
+
+                <div class="experience-item">
+                    <span class="date">Jul 28, 2022 - Nov 20, 2024 · 2 years 4 months</span>
+                    <h3 style="margin-bottom: 16px;">Infosys</h3>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p style="font-weight: 600; color: var(--text); margin-bottom: 4px;">Systems Engineer · Feb 2023 - Nov 20, 2024</p>
+                        <p style="color: var(--text-light); font-size: 14px; margin-bottom: 8px;">CISCO Unified Communications Manager Project</p>
+                        <p>• Managed enterprise CISCO Call Manager infrastructure with 99.9% uptime</p>
+                        <p>• Implemented Git-based version control across development, staging, and production environments</p>
+                        <p>• Led system upgrades, troubleshooting, and automation initiatives</p>
+                    </div>
+                    
+                    <div>
+                        <p style="font-weight: 600; color: var(--text); margin-bottom: 4px;">Systems Engineer Trainee · Jul 28, 2022 - Jan 2023</p>
+                        <p style="color: var(--text-light); font-size: 14px; margin-bottom: 8px;">Training & Development</p>
+                        <p>• Completed intensive training in Linux, Python, Git, Docker, and Kubernetes</p>
+                        <p>• Earned Infosys Certified Basic Linux Administrator certification</p>
+                        <p>• Built foundational expertise in DevOps tools and cloud infrastructure</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 64px;">Education</h2>
+            
+            <div class="timeline-container">
+                <div class="education-item">
+                    <span class="date">2018 - 2022</span>
+                    <h3>Bachelor of Technology (B.Tech)</h3>
+                    <p>Rajiv Gandhi University of Knowledge Technologies (RGUKT)</p>
+                    <p>Electronics and Communication Engineering · CGPA: 8.67/10</p>
+                    <p>Relevant Coursework: Digital Systems, Computer Networks, Embedded Systems, Signal Processing</p>
+                </div>
+
+                <div class="education-item">
+                    <span class="date">2016 - 2018</span>
+                    <h3>Pre University Course (PUC)</h3>
+                    <p>Rajiv Gandhi University of Knowledge Technologies (RGUKT)</p>
+                    <p>Mathematics, Physics, Chemistry · CGPA: 8.74/10</p>
+                    <p>🏆 Pratibha Awardee - Government of Andhra Pradesh (2016)</p>
+                </div>
+
+                <div class="education-item">
+                    <span class="date">2014 - 2016</span>
+                    <h3>Secondary School Certificate (SSC)</h3>
+                    <p>Rajiv Gandhi University of Knowledge Technologies (RGUKT)</p>
+                    <p>High School Education · GPA: 10/10</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" style="background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);">
+        <div class="container">
+            <h2 style="text-align: center;">AWS Certifications</h2>
+            <p style="text-align: center; font-size: 18px; color: var(--text-light); margin-bottom: 0;">🏆 3x AWS Certified Professional</p>
+            <div class="cert-grid">
+                <a href="https://www.credly.com/badges/8e9bb3c0-26cc-48b6-85af-3f8475308a35/public_url" class="cert-card" target="_blank">
+                    <div class="cert-badge">
+                        <img src="images/aws-certified-ai-practitioner.png" alt="AWS Certified AI Practitioner">
+                    </div>
+                    <h3>AWS Certified AI Practitioner</h3>
+                    <p>Expertise in AI, ML, and generative AI concepts. Validates ability to implement AI solutions on AWS.</p>
+                    <span class="cert-link">View Credential →</span>
+                </a>
+
+                <a href="https://www.credly.com/badges/87743d0a-78ca-42be-a639-9f96a2c53883/public_url" class="cert-card" target="_blank">
+                    <div class="cert-badge">
+                        <img src="images/aws-certified-solutions-architect-associate.png" alt="AWS Certified Solutions Architect">
+                    </div>
+                    <h3>AWS Solutions Architect - Associate</h3>
+                    <p>Proven ability to design cost-optimized, scalable, and resilient cloud architectures on AWS.</p>
+                    <span class="cert-link">View Credential →</span>
+                </a>
+
+                <a href="https://www.credly.com/badges/d08d3022-7e68-4eaf-be00-00d755736b0b/public_url" class="cert-card" target="_blank">
+                    <div class="cert-badge">
+                        <img src="images/aws-certified-cloud-practitioner.png" alt="AWS Certified Cloud Practitioner">
+                    </div>
+                    <h3>AWS Certified Cloud Practitioner</h3>
+                    <p>Foundational knowledge of AWS Cloud services, architecture, security, and pricing models.</p>
+                    <span class="cert-link">View Credential →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>3-Tier Application Deployment on AWS</h3>
+                        <p>Architected and deployed a highly available 3-tier web application on AWS with separate presentation, application, and database layers. Implemented Auto Scaling, Load Balancing, and Multi-AZ RDS for high availability and fault tolerance.</p>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Tech: AWS EC2, ALB, Auto Scaling, RDS Multi-AZ, VPC, Security Groups</p>
+                        <a href="https://github.com/venkataraogurram" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px; display: inline-block;">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>Elastic Beanstalk with Custom Domain & HTTPS</h3>
+                        <p>Deployed full-stack application using AWS Elastic Beanstalk with custom domain configuration. Implemented SSL/TLS certificates via ACM, configured Route53 DNS, and set up environment variables for secure production deployment.</p>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Tech: AWS Elastic Beanstalk, ACM, Route53, Application Load Balancer, HTTPS</p>
+                        <a href="https://github.com/venkataraogurram" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px; display: inline-block;">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>CI/CD Pipeline with AWS CodePipeline</h3>
+                        <p>Built automated CI/CD pipeline using AWS CodePipeline, CodeBuild, and CodeDeploy. Integrated with GitHub for source control, automated testing, and blue-green deployments to EC2 instances with zero-downtime releases.</p>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Tech: AWS CodePipeline, CodeBuild, CodeDeploy, GitHub, EC2, S3</p>
+                        <a href="https://github.com/venkataraogurram" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px; display: inline-block;">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>Enterprise CUCM Infrastructure</h3>
+                        <p>Designed and maintained Cisco Unified Communications Manager system for enterprise-scale voice infrastructure. Managed deployments, upgrades, and troubleshooting ensuring 99.9% uptime.</p>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Tech: Cisco CUCM, Linux, Git, Python Automation</p>
+                        <a href="https://github.com/venkataraogurram" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px; display: inline-block;">View on GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Open to opportunities in cloud engineering, DevOps, and AWS solutions architecture. Let's collaborate to build innovative cloud solutions.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>Hyderabad, India</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>✉️ Email</h3>
+                    <p><a href="mailto:venkataraogurram14@gmail.com">venkataraogurram14@gmail.com</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>💼 LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/venkataraogurram/" target="_blank">linkedin.com/in/venkataraogurram</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>💻 GitHub</h3>
+                    <p><a href="https://github.com/venkataraogurram" target="_blank">github.com/venkataraogurram</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Venkatarao Gurram. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
