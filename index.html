@@ -37,7 +37,7 @@
       "jobTitle": "Cloud Support Associate",
       "worksFor": { "@type": "Organization", "name": "Amazon Web Services" },
       "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "RGUKT" }
+        { "@type": "CollegeOrUniversity", "name": "Rajiv Gandhi University of Knowledge Technologies, Srikakulam" }
       ],
       "knowsAbout": ["AWS", "Cloud Computing", "DevOps", "Terraform", "Docker", "Kubernetes", "CI/CD", "Linux"],
       "sameAs": [
@@ -343,7 +343,7 @@
         }
 
         .hero-stats {
-            display: grid; grid-template-columns: repeat(4, 1fr);
+            display: grid; grid-template-columns: repeat(3, 1fr);
             gap: 24px; margin-top: 64px;
             padding-top: 32px;
             border-top: 1px solid var(--border);
@@ -575,6 +575,28 @@
         }
         .edu-grid .card h3 { font-size: 16px; font-weight: 600; margin: 8px 0 4px; }
         .edu-grid .card p { font-size: 13.5px; }
+
+        .edu-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .edu-logo {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            display: grid; place-items: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            padding: 4px;
+        }
+        :root[data-theme="dark"] .edu-logo {
+            background: #ffffff;
+        }
+        .edu-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .edu-logo.placeholder {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: white; font-weight: 700; font-size: 14px; padding: 0;
+            border-color: transparent;
+        }
+        :root[data-theme="dark"] .edu-logo.placeholder { background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+        .edu-head h3 { margin: 0; }
 
         /* ========== Certifications ========== */
         .cert-grid {
@@ -816,10 +838,6 @@
                     <div class="stat-num">1×</div>
                     <div class="stat-label">Terraform Certified</div>
                 </div>
-                <div>
-                    <div class="stat-num">5+</div>
-                    <div class="stat-label">Projects shipped</div>
-                </div>
             </div>
         </div>
     </section>
@@ -831,7 +849,7 @@
             <div class="about-grid">
                 <div class="reveal">
                     <p>Currently working as a <strong style="color: var(--text);">Cloud Support Associate at AWS</strong>, with a total of <strong style="color: var(--text);">3 years 10 months</strong> of experience across cloud infrastructure, deployment automation, and DevOps practices. At AWS I'm part of the Deployment team, helping enterprise customers architect, deploy, and optimize scalable solutions across AWS services.</p>
-                    <p style="margin-top: 14px;">Before AWS, I spent 2 years 4 months at Infosys as a Systems Engineer on the CISCO Call Manager project, managing enterprise-scale infrastructure. I hold a B.Tech in Electronics &amp; Communication Engineering from RGUKT, blending strong fundamentals with hands-on cloud expertise.</p>
+                    <p style="margin-top: 14px;">Before AWS, I spent 2 years 4 months at Infosys as a Systems Engineer on the CISCO Call Manager project, managing enterprise-scale infrastructure. I hold a B.Tech in Electronics &amp; Communication Engineering from RGUKT Srikakulam, blending strong fundamentals with hands-on cloud expertise.</p>
                     <span class="award-pill">🏆 Pratibha Awardee — Government of Andhra Pradesh, 2016</span>
                 </div>
 
@@ -985,20 +1003,32 @@
             <div class="edu-grid">
                 <div class="card reveal">
                     <span class="date-pill">2018 — 2022</span>
-                    <h3>B.Tech</h3>
-                    <p>RGUKT · Electronics &amp; Communication Engineering</p>
+                    <div class="edu-head">
+                        <div class="edu-logo"><img src="images/rgukt.jpeg" alt="" loading="lazy" decoding="async"></div>
+                        <h3>B.Tech</h3>
+                    </div>
+                    <p title="Rajiv Gandhi University of Knowledge Technologies, Srikakulam">Rajiv Gandhi University of Knowledge Technologies (RGUKT), Srikakulam</p>
+                    <p style="font-size: 12.5px; margin-top: 4px;">Electronics &amp; Communication Engineering</p>
                     <p style="margin-top: 6px; color: var(--accent); font-weight: 600;">CGPA 8.67 / 10</p>
                 </div>
                 <div class="card reveal">
                     <span class="date-pill">2016 — 2018</span>
-                    <h3>Pre-University Course (PUC)</h3>
-                    <p>RGUKT · Mathematics, Physics, Chemistry</p>
+                    <div class="edu-head">
+                        <div class="edu-logo"><img src="images/rgukt.jpeg" alt="" loading="lazy" decoding="async"></div>
+                        <h3>Pre-University Course (PUC)</h3>
+                    </div>
+                    <p title="Rajiv Gandhi University of Knowledge Technologies, Srikakulam">Rajiv Gandhi University of Knowledge Technologies (RGUKT), Srikakulam</p>
+                    <p style="font-size: 12.5px; margin-top: 4px;">Mathematics, Physics, Chemistry</p>
                     <p style="margin-top: 6px; color: var(--accent); font-weight: 600;">CGPA 8.74 / 10</p>
                 </div>
                 <div class="card reveal">
                     <span class="date-pill">2015 — 2016</span>
-                    <h3>Secondary School (SSC)</h3>
-                    <p>RGUKT · High School Education</p>
+                    <div class="edu-head">
+                        <div class="edu-logo placeholder" aria-hidden="true">AP</div>
+                        <h3>Secondary School (SSC)</h3>
+                    </div>
+                    <p>AP Model School, Nuzendla</p>
+                    <p style="font-size: 12.5px; margin-top: 4px;">High School Education</p>
                     <p style="margin-top: 6px; color: var(--accent); font-weight: 600;">GPA 10 / 10</p>
                 </div>
             </div>
