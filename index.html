@@ -1105,6 +1105,45 @@
 
             <div class="project-grid">
                 <div class="card project-card reveal">
+                    <h3>ShopStack — Retail Microservices on Amazon EKS</h3>
+                    <p class="desc">Catalog, cart, and order services (FastAPI) plus an Nginx storefront, containerized and run on EKS behind one ALB. Terraform provisions the VPC, cluster, ECR, DynamoDB, and IAM; per-service IAM roles via EKS Pod Identity, restricted Pod Security Standard, probes, HPA (verified 2→6 pods in under 40 s), and CloudWatch tracing by request ID. GitHub Actions builds and pushes images over OIDC.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Amazon EKS</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Amazon ECR</span>
+                        <span class="tech-tag">DynamoDB</span>
+                        <span class="tech-tag">Helm</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">CloudWatch</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/venkataraogurram/shopstack" target="_blank" rel="noopener">GitHub →</a>
+                        <a href="https://github.com/venkataraogurram/shopstack/blob/main/docs/evidence/verification.md" target="_blank" rel="noopener">Verification record →</a>
+                    </div>
+                </div>
+
+                <div class="card project-card reveal">
+                    <h3>Expense Tracker — Full-Stack App with SSO on AWS</h3>
+                    <p class="desc">Spring Boot REST API and React UI packaged into one jar and deployed on Elastic Beanstalk behind an ALB with ACM TLS and a Route 53 domain. Corporate SSO through ALB OIDC authentication with per-user data isolation by validating the ALB-signed identity JWT; secrets in Secrets Manager; RDS MySQL reachable only from the app tier.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java 21</span>
+                        <span class="tech-tag">Spring Boot 3</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Elastic Beanstalk</span>
+                        <span class="tech-tag">ALB OIDC</span>
+                        <span class="tech-tag">RDS MySQL</span>
+                        <span class="tech-tag">Secrets Manager</span>
+                        <span class="tech-tag">ACM</span>
+                        <span class="tech-tag">Route 53</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/venkataraogurram/expense-tracker-fullstack" target="_blank" rel="noopener">GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="card project-card reveal">
                     <h3>🎓 Exam Portal — Cloud Assessment Platform</h3>
                     <p class="desc">A full-stack, cloud-native exam management system on AWS with HTTPS, ALB, and RDS MySQL. Student management, exam creation, automated grading, and assignment system with real-time results and analytics.</p>
                     <div class="project-tech">
@@ -1130,18 +1169,6 @@
                         <span class="tech-tag">Auto Scaling</span>
                         <span class="tech-tag">RDS Multi-AZ</span>
                         <span class="tech-tag">VPC</span>
-                    </div>
-                    <span class="project-status">Hands-on Lab</span>
-                </div>
-
-                <div class="card project-card reveal">
-                    <h3>Beanstalk with Custom Domain &amp; HTTPS</h3>
-                    <p class="desc">Full-stack deployment using AWS Elastic Beanstalk with custom domain. SSL/TLS via ACM, Route 53 DNS, and environment variables for secure production rollout.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Elastic Beanstalk</span>
-                        <span class="tech-tag">ACM</span>
-                        <span class="tech-tag">Route 53</span>
-                        <span class="tech-tag">ALB</span>
                     </div>
                     <span class="project-status">Hands-on Lab</span>
                 </div>
